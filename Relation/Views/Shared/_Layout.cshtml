@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Hem", "Index", "Home")</li>
+                <li>@Html.ActionLink("Kund", "Index", "Customer")</li>
+                <li>@Html.ActionLink("Order", "Index", "Order")</li>
+                <li>@Html.ActionLink("Enhet", "Index", "OrderUnit")</li>
+                <li>@Html.ActionLink("Kontaktperson", "Index", "Person")</li>
+                <li>@Html.ActionLink("Kategori", "Index", "Category")</li>
+                <li>@Html.ActionLink("Kategorityp", "Index", "CategoryType")</li>
+            </ul>
+     
+            <ul class="nav navbar-nav navbar-right" >
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

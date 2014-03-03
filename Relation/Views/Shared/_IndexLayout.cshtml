@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Partial("SearchForm")
+                </div>
+                <div class="col-md-6 col-md-push-5">
+                    @Html.ActionLink("Skapa ny", "Create", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-sm-8">
+            @RenderBody()
+            @Html.Partial("_Pager", ViewBag.Pager as Relation.Web.Code.PageingModel)
+        </div>
+    </div>
+</div>
+
+
+

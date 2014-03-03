@@ -1,0 +1,11 @@
+﻿@{
+    string searchValue = ViewBag.filterText;
+    using (Html.BeginForm("Page", ViewContext.RouteData.Values["controller"].ToString(), FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <div class="form-group">
+            @Html.TextBox("filterText", searchValue, new { @class = @"form-control", placeholder = "Sök..." })
+        </div>
+        <input type="submit" value="Sök" class="btn btn-default" />
+
+    }
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Relation.Web.ViewModels.OrderUnitViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th colspan="2">
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+

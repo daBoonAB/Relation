@@ -1,0 +1,21 @@
+﻿@model Relation.Web.Code.PageingModel
+
+
+<p>Antal: @Model.Hits st</p>
+@if (Model.PageCount > 1)
+{
+    <p>Visar sida @Model.ActivePage av @Model.PageCount</p>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.ActivePage)
+            {
+                <li class="active"><a href="/@ViewContext.RouteData.Values["controller"]/Page/@i">@i</a></li>
+            }
+            else
+            {
+                <li><a href="/@ViewContext.RouteData.Values["controller"]/Page/@i">@i</a></li>
+            }
+        }
+    </ul>
+}

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55A4A2E0-300B-492C-B4C6-83D027EC306C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Relation.Core</RootNamespace>
+    <AssemblyName>Relation.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.0\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\DynamicLambdaExpressions.cs" />
+    <Compile Include="Class\Pager.cs" />
+    <Compile Include="Class\Settings.cs" />
+    <Compile Include="Interfaces\ICrudService.cs" />
+    <Compile Include="Interfaces\IPagedQuery.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Models\RelationDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelationDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RelationDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCategory.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCategoryType.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCompany.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCustomer.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCustomerCategory.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCustomerCustomercategory.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCustomerPerson.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCustomerPersonCategory.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMessage.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrder.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrderUnit.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProduct.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProject.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSubscription.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSubscriptionTypeCustomer.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUser.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserGroup.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserGroupUser.cs">
+      <DependentUpon>RelationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CrudService.cs" />
+    <Compile Include="Services\PageingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Models\RelationDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RelationDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\RelationDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RelationDB.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Relation.Relation.Infrastructure.Data.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="categoryTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCategoryType">
+          <Key>
+            <PropertyRef Name="categoryTypeID" />
+          </Key>
+          <Property Name="categoryTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCompany">
+          <Key>
+            <PropertyRef Name="companyID" />
+          </Key>
+          <Property Name="companyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblConsultant">
+          <Key>
+            <PropertyRef Name="consultantID" />
+          </Key>
+          <Property Name="consultantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="dtmDate" Type="datetime" />
+          <Property Name="sellerID" Type="int" />
+          <Property Name="bitInvoiceOk" Type="bit" />
+          <Property Name="dblPrice" Type="float" />
+          <Property Name="txtWhat" Type="ntext" />
+          <Property Name="bitInvoice" Type="bit" />
+          <Property Name="bitConsultant" Type="bit" />
+          <Property Name="dblUnits" Type="float" />
+          <Property Name="dblUnitPrice" Type="float" />
+          <Property Name="timereportid" Type="int" />
+          <Property Name="projectid" Type="int" />
+          <Property Name="productID" Type="int" />
+          <Property Name="kontoID" Type="int" />
+          <Property Name="kstID" Type="int" />
+          <Property Name="dblHours" Type="float" />
+          <Property Name="intHourPrice" Type="int" />
+          <Property Name="kstbID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblConsultanthistory">
+          <Key>
+            <PropertyRef Name="consultanthistoryID" />
+          </Key>
+          <Property Name="consultanthistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="consultantID" Type="int" />
+          <Property Name="dtmTime" Type="smalldatetime" />
+          <Property Name="sellerID" Type="int" />
+          <Property Name="strText" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="contactID" />
+          </Key>
+          <Property Name="contactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="sellerID" Type="int" />
+          <Property Name="dtmWhen" Type="datetime" />
+          <Property Name="txtNote" Type="ntext" />
+          <Property Name="bitReminder" Type="bit" />
+          <Property Name="bitComplete" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblContactPerson">
+          <Key>
+            <PropertyRef Name="contactPersonID" />
+          </Key>
+          <Property Name="contactPersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="strLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="strAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="strZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="strTele" Type="nvarchar" MaxLength="50" />
+          <Property Name="strMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="strEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="strCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="strCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="strOther" Type="nvarchar" MaxLength="4000" />
+          <Property Name="strBirthday" Type="nvarchar" MaxLength="50" />
+          <Property Name="strFax" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblContactPersonCategory">
+          <Key>
+            <PropertyRef Name="contactPersonCategoryID" />
+          </Key>
+          <Property Name="contactPersonCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblContactPersonContactPersonCategory">
+          <Key>
+            <PropertyRef Name="contactPersonContactPersonCategoryID" />
+          </Key>
+          <Property Name="contactPersonContactPersonCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contactPersonID" Type="int" />
+          <Property Name="contactPersonCategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="intCustomerNumber" Type="int" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strNote" Type="nvarchar" MaxLength="2000" />
+          <Property Name="strVAT" Type="nvarchar" MaxLength="50" />
+          <Property Name="strAddress" Type="nvarchar" MaxLength="128" />
+          <Property Name="strZip" Type="nvarchar" MaxLength="128" />
+          <Property Name="strCity" Type="nvarchar" MaxLength="128" />
+          <Property Name="strCountry" Type="nvarchar" MaxLength="128" />
+          <Property Name="strPhone" Type="nvarchar" MaxLength="128" />
+          <Property Name="strFax" Type="nvarchar" MaxLength="128" />
+          <Property Name="strEmail" Type="nvarchar" MaxLength="128" />
+          <Property Name="strUrl" Type="nvarchar" MaxLength="128" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerCategory">
+          <Key>
+            <PropertyRef Name="customerCategoryID" />
+          </Key>
+          <Property Name="customerCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="categoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerCustomercategory">
+          <Key>
+            <PropertyRef Name="customerCustomercategoryID" />
+          </Key>
+          <Property Name="customerCustomercategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="customercategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCustomerPerson">
+          <Key>
+            <PropertyRef Name="customerPersonID" />
+          </Key>
+          <Property Name="customerPersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="strFirstname" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strLastname" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strSaturation" Type="nvarchar" MaxLength="128" />
+          <Property Name="strNote" Type="nvarchar(max)" />
+          <Property Name="strAddress" Type="nvarchar" MaxLength="128" />
+          <Property Name="strZip" Type="nvarchar" MaxLength="10" />
+          <Property Name="strCity" Type="nvarchar" MaxLength="128" />
+          <Property Name="strCountry" Type="nvarchar" MaxLength="128" />
+          <Property Name="strPhone" Type="nvarchar" MaxLength="128" />
+          <Property Name="strFax" Type="nvarchar" MaxLength="64" />
+          <Property Name="strEmail" Type="nvarchar" MaxLength="128" />
+          <Property Name="strUrl" Type="nvarchar" MaxLength="128" />
+          <Property Name="dtmBirthday" Type="datetime" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerPersonCategory">
+          <Key>
+            <PropertyRef Name="customerPersonCategoryID" />
+          </Key>
+          <Property Name="customerPersonCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerPersonID" Type="int" Nullable="false" />
+          <Property Name="categoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerSeller">
+          <Key>
+            <PropertyRef Name="customerSellerID" />
+          </Key>
+          <Property Name="customerSellerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="sellerID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMessage">
+          <Key>
+            <PropertyRef Name="messageID" />
+          </Key>
+          <Property Name="messageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strMessage" Type="nvarchar" MaxLength="1500" />
+          <Property Name="dtmFrom" Type="datetime" />
+          <Property Name="dtmTom" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="customerPersonID" Type="int" />
+          <Property Name="productID" Type="int" />
+          <Property Name="orderUnitID" Type="int" Nullable="false" />
+          <Property Name="intAmount" Type="int" />
+          <Property Name="dblUnitPrice" Type="float" />
+          <Property Name="strDescription" Type="nvarchar" MaxLength="2000" />
+          <Property Name="bitInvoice" Type="bit" Nullable="false" />
+          <Property Name="bitInvoiceOK" Type="bit" Nullable="false" />
+          <Property Name="dtmWhen" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOrderUnit">
+          <Key>
+            <PropertyRef Name="orderUnitID" />
+          </Key>
+          <Property Name="orderUnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="strUnit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="strDescription" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="bitInteger" Type="bit" Nullable="false" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="dblUnitPrice" Type="float" Nullable="false" />
+          <Property Name="strDescription" Type="nvarchar" MaxLength="2000" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="projectID" />
+          </Key>
+          <Property Name="projectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblSession">
+          <Key>
+            <PropertyRef Name="sessionID" />
+          </Key>
+          <Property Name="sessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sessionGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="64" />
+          <Property Name="strValue" Type="nvarchar" MaxLength="4000" />
+          <Property Name="dtmUpdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblSubscription">
+          <Key>
+            <PropertyRef Name="subscriptionID" />
+          </Key>
+          <Property Name="subscriptionID" Type="int" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="customerPersonID" Type="int" Nullable="false" />
+          <Property Name="productID" Type="int" Nullable="false" />
+          <Property Name="intInvoicesPerYear" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionType">
+          <Key>
+            <PropertyRef Name="subscriptionTypeID" />
+          </Key>
+          <Property Name="subscriptionTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionTypeContactPerson">
+          <Key>
+            <PropertyRef Name="subscriptiontypecontactpersonid" />
+          </Key>
+          <Property Name="subscriptiontypecontactpersonid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subscriptiontypemodeid" Type="int" />
+          <Property Name="contactpersonid" Type="int" />
+          <Property Name="startIssueid" Type="int" />
+          <Property Name="stopIssueid" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionTypeCustomer">
+          <Key>
+            <PropertyRef Name="subscriptionTypeCustomerID" />
+          </Key>
+          <Property Name="subscriptionTypeCustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subscriptionTypeID" Type="int" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="dtmStart" Type="datetime" />
+          <Property Name="dtmStop" Type="datetime" />
+          <Property Name="dtmInvoice" Type="datetime" />
+          <Property Name="intAmount" Type="int" />
+          <Property Name="intInvoiceInterval" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view '103206-crm.dbo.tblTempCustomer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblTempCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="150" />
+          <Property Name="strAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="strZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="strCity" Type="nvarchar" MaxLength="150" />
+          <Property Name="strTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="strFax" Type="nvarchar" MaxLength="50" />
+          <Property Name="strEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="txtNote" Type="ntext" />
+          <Property Name="dtmCreated" Type="datetime" />
+          <Property Name="dtmUpdated" Type="datetime" />
+          <Property Name="strUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="strMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="strHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="strCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="strContactName" Type="nvarchar" MaxLength="500" />
+          <Property Name="oldkontaktID" Type="int" />
+          <Property Name="strContactFirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="strContactLastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="strContactPosition" Type="char" MaxLength="10" />
+          <Property Name="strRegion" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="strFirstname" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strLastname" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strUsername" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strEmail" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="strPassword" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUserGroup">
+          <Key>
+            <PropertyRef Name="userGroupID" />
+          </Key>
+          <Property Name="userGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyID" Type="int" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="bitDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUserGroupUser">
+          <Key>
+            <PropertyRef Name="userGroupUserID" />
+          </Key>
+          <Property Name="userGroupUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userGroupID" Type="int" Nullable="false" />
+          <Property Name="userID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblCategory_tblCategoryType">
+          <End Role="tblCategoryType" Type="Self.tblCategoryType" Multiplicity="1" />
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategoryType">
+              <PropertyRef Name="categoryTypeID" />
+            </Principal>
+            <Dependent Role="tblCategory">
+              <PropertyRef Name="categoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomer_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblCustomer">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerCategory_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblCustomerCategory" Type="Self.tblCustomerCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="tblCustomerCategory">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerCategory_tblCustomer">
+          <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1" />
+          <End Role="tblCustomerCategory" Type="Self.tblCustomerCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblCustomerCategory">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerPersonCategory_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblCustomerPersonCategory" Type="Self.tblCustomerPersonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="tblCustomerPersonCategory">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerPersonCategory_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="1" />
+          <End Role="tblCustomerPersonCategory" Type="Self.tblCustomerPersonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblCustomerPersonCategory">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCustomer">
+          <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblOrderUnit">
+          <End Role="tblOrderUnit" Type="Self.tblOrderUnit" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrderUnit">
+              <PropertyRef Name="orderUnitID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="orderUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderUnit_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblOrderUnit" Type="Self.tblOrderUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblOrderUnit">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCustomer">
+          <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroup_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblUserGroup">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroupUser_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+          <End Role="tblUserGroupUser" Type="Self.tblUserGroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tblUserGroupUser">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroupUser_tblUserGroup">
+          <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="1" />
+          <End Role="tblUserGroupUser" Type="Self.tblUserGroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserGroup">
+              <PropertyRef Name="userGroupID" />
+            </Principal>
+            <Dependent Role="tblUserGroupUser">
+              <PropertyRef Name="userGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RelationInfrastructureDataStoreContainer">
+          <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCategoryType" EntityType="Self.tblCategoryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCompany" EntityType="Self.tblCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConsultant" EntityType="Self.tblConsultant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConsultanthistory" EntityType="Self.tblConsultanthistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContact" EntityType="Self.tblContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactPerson" EntityType="Self.tblContactPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactPersonCategory" EntityType="Self.tblContactPersonCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactPersonContactPersonCategory" EntityType="Self.tblContactPersonContactPersonCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerCategory" EntityType="Self.tblCustomerCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerCustomercategory" EntityType="Self.tblCustomerCustomercategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerPerson" EntityType="Self.tblCustomerPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerPersonCategory" EntityType="Self.tblCustomerPersonCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerSeller" EntityType="Self.tblCustomerSeller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMessage" EntityType="Self.tblMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrderUnit" EntityType="Self.tblOrderUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSession" EntityType="Self.tblSession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubscription" EntityType="Self.tblSubscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubscriptionType" EntityType="Self.tblSubscriptionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubscriptionTypeContactPerson" EntityType="Self.tblSubscriptionTypeContactPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubscriptionTypeCustomer" EntityType="Self.tblSubscriptionTypeCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserGroup" EntityType="Self.tblUserGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserGroupUser" EntityType="Self.tblUserGroupUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTempCustomer" EntityType="Self.tblTempCustomer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblTempCustomer].[customerID] AS [customerID], 
+    [tblTempCustomer].[strName] AS [strName], 
+    [tblTempCustomer].[strAddress] AS [strAddress], 
+    [tblTempCustomer].[strZip] AS [strZip], 
+    [tblTempCustomer].[strCity] AS [strCity], 
+    [tblTempCustomer].[strTel] AS [strTel], 
+    [tblTempCustomer].[strFax] AS [strFax], 
+    [tblTempCustomer].[strEmail] AS [strEmail], 
+    [tblTempCustomer].[txtNote] AS [txtNote], 
+    [tblTempCustomer].[dtmCreated] AS [dtmCreated], 
+    [tblTempCustomer].[dtmUpdated] AS [dtmUpdated], 
+    [tblTempCustomer].[strUrl] AS [strUrl], 
+    [tblTempCustomer].[strMobile] AS [strMobile], 
+    [tblTempCustomer].[strHome] AS [strHome], 
+    [tblTempCustomer].[strCountry] AS [strCountry], 
+    [tblTempCustomer].[strContactName] AS [strContactName], 
+    [tblTempCustomer].[oldkontaktID] AS [oldkontaktID], 
+    [tblTempCustomer].[strContactFirstName] AS [strContactFirstName], 
+    [tblTempCustomer].[strContactLastName] AS [strContactLastName], 
+    [tblTempCustomer].[strContactPosition] AS [strContactPosition], 
+    [tblTempCustomer].[strRegion] AS [strRegion]
+    FROM [dbo].[tblTempCustomer] AS [tblTempCustomer]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblCategory_tblCategoryType" Association="Self.FK_tblCategory_tblCategoryType">
+            <End Role="tblCategoryType" EntitySet="tblCategoryType" />
+            <End Role="tblCategory" EntitySet="tblCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomer_tblCompany" Association="Self.FK_tblCustomer_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompany" />
+            <End Role="tblCustomer" EntitySet="tblCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerCategory_tblCategory" Association="Self.FK_tblCustomerCategory_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblCustomerCategory" EntitySet="tblCustomerCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerCategory_tblCustomer" Association="Self.FK_tblCustomerCategory_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomer" />
+            <End Role="tblCustomerCategory" EntitySet="tblCustomerCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerPersonCategory_tblCategory" Association="Self.FK_tblCustomerPersonCategory_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblCustomerPersonCategory" EntitySet="tblCustomerPersonCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerPersonCategory_tblCustomerPerson" Association="Self.FK_tblCustomerPersonCategory_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPerson" />
+            <End Role="tblCustomerPersonCategory" EntitySet="tblCustomerPersonCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCompany" Association="Self.FK_tblOrder_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompany" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCustomer" Association="Self.FK_tblOrder_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomer" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCustomerPerson" Association="Self.FK_tblOrder_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPerson" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblOrderUnit" Association="Self.FK_tblOrder_tblOrderUnit">
+            <End Role="tblOrderUnit" EntitySet="tblOrderUnit" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblProduct" Association="Self.FK_tblOrder_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblUser" Association="Self.FK_tblOrder_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblOrder" EntitySet="tblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderUnit_tblCompany" Association="Self.FK_tblOrderUnit_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompany" />
+            <End Role="tblOrderUnit" EntitySet="tblOrderUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCompany" Association="Self.FK_tblSubscription_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompany" />
+            <End Role="tblSubscription" EntitySet="tblSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCustomer" Association="Self.FK_tblSubscription_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomer" />
+            <End Role="tblSubscription" EntitySet="tblSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCustomerPerson" Association="Self.FK_tblSubscription_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPerson" />
+            <End Role="tblSubscription" EntitySet="tblSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblProduct" Association="Self.FK_tblSubscription_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblSubscription" EntitySet="tblSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroup_tblCompany" Association="Self.FK_tblUserGroup_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompany" />
+            <End Role="tblUserGroup" EntitySet="tblUserGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroupUser_tblUser" Association="Self.FK_tblUserGroupUser_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblUserGroupUser" EntitySet="tblUserGroupUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroupUser_tblUserGroup" Association="Self.FK_tblUserGroupUser_tblUserGroup">
+            <End Role="tblUserGroup" EntitySet="tblUserGroup" />
+            <End Role="tblUserGroupUser" EntitySet="tblUserGroupUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Relation.Relation.Infrastructure.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="categoryTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblCategoryType" Relationship="Self.FK_tblCategory_tblCategoryType" FromRole="tblCategory" ToRole="tblCategoryType" />
+          <NavigationProperty Name="tblCustomerCategories" Relationship="Self.FK_tblCustomerCategory_tblCategory" FromRole="tblCategory" ToRole="tblCustomerCategory" />
+          <NavigationProperty Name="tblCustomerPersonCategories" Relationship="Self.FK_tblCustomerPersonCategory_tblCategory" FromRole="tblCategory" ToRole="tblCustomerPersonCategory" />
+        </EntityType>
+        <EntityType Name="tblCategoryType">
+          <Key>
+            <PropertyRef Name="categoryTypeID" />
+          </Key>
+          <Property Name="categoryTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblCategories" Relationship="Self.FK_tblCategory_tblCategoryType" FromRole="tblCategoryType" ToRole="tblCategory" />
+        </EntityType>
+        <EntityType Name="tblCompany">
+          <Key>
+            <PropertyRef Name="companyID" />
+          </Key>
+          <Property Name="companyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblCustomers" Relationship="Self.FK_tblCustomer_tblCompany" FromRole="tblCompany" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblCompany" FromRole="tblCompany" ToRole="tblOrder" />
+          <NavigationProperty Name="tblOrderUnits" Relationship="Self.FK_tblOrderUnit_tblCompany" FromRole="tblCompany" ToRole="tblOrderUnit" />
+          <NavigationProperty Name="tblSubscriptions" Relationship="Self.FK_tblSubscription_tblCompany" FromRole="tblCompany" ToRole="tblSubscription" />
+          <NavigationProperty Name="tblUserGroups" Relationship="Self.FK_tblUserGroup_tblCompany" FromRole="tblCompany" ToRole="tblUserGroup" />
+        </EntityType>
+        <EntityType Name="tblConsultant">
+          <Key>
+            <PropertyRef Name="consultantID" />
+          </Key>
+          <Property Name="consultantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="dtmDate" Type="DateTime" Precision="3" />
+          <Property Name="sellerID" Type="Int32" />
+          <Property Name="bitInvoiceOk" Type="Boolean" />
+          <Property Name="dblPrice" Type="Double" />
+          <Property Name="txtWhat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bitInvoice" Type="Boolean" />
+          <Property Name="bitConsultant" Type="Boolean" />
+          <Property Name="dblUnits" Type="Double" />
+          <Property Name="dblUnitPrice" Type="Double" />
+          <Property Name="timereportid" Type="Int32" />
+          <Property Name="projectid" Type="Int32" />
+          <Property Name="productID" Type="Int32" />
+          <Property Name="kontoID" Type="Int32" />
+          <Property Name="kstID" Type="Int32" />
+          <Property Name="dblHours" Type="Double" />
+          <Property Name="intHourPrice" Type="Int32" />
+          <Property Name="kstbID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblConsultanthistory">
+          <Key>
+            <PropertyRef Name="consultanthistoryID" />
+          </Key>
+          <Property Name="consultanthistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="consultantID" Type="Int32" />
+          <Property Name="dtmTime" Type="DateTime" Precision="0" />
+          <Property Name="sellerID" Type="Int32" />
+          <Property Name="strText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="contactID" />
+          </Key>
+          <Property Name="contactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="sellerID" Type="Int32" />
+          <Property Name="dtmWhen" Type="DateTime" Precision="3" />
+          <Property Name="txtNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bitReminder" Type="Boolean" />
+          <Property Name="bitComplete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblContactPerson">
+          <Key>
+            <PropertyRef Name="contactPersonID" />
+          </Key>
+          <Property Name="contactPersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strTele" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="strOther" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="strBirthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblContactPersonCategory">
+          <Key>
+            <PropertyRef Name="contactPersonCategoryID" />
+          </Key>
+          <Property Name="contactPersonCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblContactPersonContactPersonCategory">
+          <Key>
+            <PropertyRef Name="contactPersonContactPersonCategoryID" />
+          </Key>
+          <Property Name="contactPersonContactPersonCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contactPersonID" Type="Int32" />
+          <Property Name="contactPersonCategoryID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="intCustomerNumber" Type="Int32" Nullable="false" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strNote" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="strVAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strZip" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strCity" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strCountry" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strPhone" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strFax" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strEmail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strUrl" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblCompany" Relationship="Self.FK_tblCustomer_tblCompany" FromRole="tblCustomer" ToRole="tblCompany" />
+          <NavigationProperty Name="tblCustomerCategories" Relationship="Self.FK_tblCustomerCategory_tblCustomer" FromRole="tblCustomer" ToRole="tblCustomerCategory" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblCustomer" FromRole="tblCustomer" ToRole="tblOrder" />
+          <NavigationProperty Name="tblSubscriptions" Relationship="Self.FK_tblSubscription_tblCustomer" FromRole="tblCustomer" ToRole="tblSubscription" />
+        </EntityType>
+        <EntityType Name="tblCustomerCategory">
+          <Key>
+            <PropertyRef Name="customerCategoryID" />
+          </Key>
+          <Property Name="customerCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" Nullable="false" />
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblCustomerCategory_tblCategory" FromRole="tblCustomerCategory" ToRole="tblCategory" />
+          <NavigationProperty Name="tblCustomer" Relationship="Self.FK_tblCustomerCategory_tblCustomer" FromRole="tblCustomerCategory" ToRole="tblCustomer" />
+        </EntityType>
+        <EntityType Name="tblCustomerCustomercategory">
+          <Key>
+            <PropertyRef Name="customerCustomercategoryID" />
+          </Key>
+          <Property Name="customerCustomercategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="customercategoryID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCustomerPerson">
+          <Key>
+            <PropertyRef Name="customerPersonID" />
+          </Key>
+          <Property Name="customerPersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" Nullable="false" />
+          <Property Name="strFirstname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strLastname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strSaturation" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="strAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strZip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="strCity" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strCountry" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strPhone" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strFax" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="strEmail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="strUrl" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="dtmBirthday" Type="DateTime" Precision="3" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblCustomerPersonCategories" Relationship="Self.FK_tblCustomerPersonCategory_tblCustomerPerson" FromRole="tblCustomerPerson" ToRole="tblCustomerPersonCategory" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblCustomerPerson" FromRole="tblCustomerPerson" ToRole="tblOrder" />
+          <NavigationProperty Name="tblSubscriptions" Relationship="Self.FK_tblSubscription_tblCustomerPerson" FromRole="tblCustomerPerson" ToRole="tblSubscription" />
+        </EntityType>
+        <EntityType Name="tblCustomerPersonCategory">
+          <Key>
+            <PropertyRef Name="customerPersonCategoryID" />
+          </Key>
+          <Property Name="customerPersonCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerPersonID" Type="Int32" Nullable="false" />
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblCustomerPersonCategory_tblCategory" FromRole="tblCustomerPersonCategory" ToRole="tblCategory" />
+          <NavigationProperty Name="tblCustomerPerson" Relationship="Self.FK_tblCustomerPersonCategory_tblCustomerPerson" FromRole="tblCustomerPersonCategory" ToRole="tblCustomerPerson" />
+        </EntityType>
+        <EntityType Name="tblCustomerSeller">
+          <Key>
+            <PropertyRef Name="customerSellerID" />
+          </Key>
+          <Property Name="customerSellerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="sellerID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblMessage">
+          <Key>
+            <PropertyRef Name="messageID" />
+          </Key>
+          <Property Name="messageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strMessage" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="dtmFrom" Type="DateTime" Precision="3" />
+          <Property Name="dtmTom" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="customerID" Type="Int32" Nullable="false" />
+          <Property Name="customerPersonID" Type="Int32" />
+          <Property Name="productID" Type="Int32" />
+          <Property Name="orderUnitID" Type="Int32" Nullable="false" />
+          <Property Name="intAmount" Type="Int32" />
+          <Property Name="dblUnitPrice" Type="Double" />
+          <Property Name="strDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="bitInvoice" Type="Boolean" Nullable="false" />
+          <Property Name="bitInvoiceOK" Type="Boolean" Nullable="false" />
+          <Property Name="dtmWhen" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tblCompany" Relationship="Self.FK_tblOrder_tblCompany" FromRole="tblOrder" ToRole="tblCompany" />
+          <NavigationProperty Name="tblCustomer" Relationship="Self.FK_tblOrder_tblCustomer" FromRole="tblOrder" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblCustomerPerson" Relationship="Self.FK_tblOrder_tblCustomerPerson" FromRole="tblOrder" ToRole="tblCustomerPerson" />
+          <NavigationProperty Name="tblOrderUnit" Relationship="Self.FK_tblOrder_tblOrderUnit" FromRole="tblOrder" ToRole="tblOrderUnit" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblOrder_tblProduct" FromRole="tblOrder" ToRole="tblProduct" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblOrder_tblUser" FromRole="tblOrder" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblOrderUnit">
+          <Key>
+            <PropertyRef Name="orderUnitID" />
+          </Key>
+          <Property Name="orderUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="strUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bitInteger" Type="Boolean" Nullable="false" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblCompany" Relationship="Self.FK_tblOrderUnit_tblCompany" FromRole="tblOrderUnit" ToRole="tblCompany" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblOrderUnit" FromRole="tblOrderUnit" ToRole="tblOrder" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dblUnitPrice" Type="Double" Nullable="false" />
+          <Property Name="strDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblProduct" FromRole="tblProduct" ToRole="tblOrder" />
+          <NavigationProperty Name="tblSubscriptions" Relationship="Self.FK_tblSubscription_tblProduct" FromRole="tblProduct" ToRole="tblSubscription" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="projectID" />
+          </Key>
+          <Property Name="projectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSession">
+          <Key>
+            <PropertyRef Name="sessionID" />
+          </Key>
+          <Property Name="sessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sessionGUID" Type="Guid" Nullable="false" />
+          <Property Name="strName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="strValue" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="dtmUpdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblSubscription">
+          <Key>
+            <PropertyRef Name="subscriptionID" />
+          </Key>
+          <Property Name="subscriptionID" Type="Int32" Nullable="false" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="customerID" Type="Int32" Nullable="false" />
+          <Property Name="customerPersonID" Type="Int32" Nullable="false" />
+          <Property Name="productID" Type="Int32" Nullable="false" />
+          <Property Name="intInvoicesPerYear" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblCompany" Relationship="Self.FK_tblSubscription_tblCompany" FromRole="tblSubscription" ToRole="tblCompany" />
+          <NavigationProperty Name="tblCustomer" Relationship="Self.FK_tblSubscription_tblCustomer" FromRole="tblSubscription" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblCustomerPerson" Relationship="Self.FK_tblSubscription_tblCustomerPerson" FromRole="tblSubscription" ToRole="tblCustomerPerson" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblSubscription_tblProduct" FromRole="tblSubscription" ToRole="tblProduct" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionType">
+          <Key>
+            <PropertyRef Name="subscriptionTypeID" />
+          </Key>
+          <Property Name="subscriptionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionTypeContactPerson">
+          <Key>
+            <PropertyRef Name="subscriptiontypecontactpersonid" />
+          </Key>
+          <Property Name="subscriptiontypecontactpersonid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subscriptiontypemodeid" Type="Int32" />
+          <Property Name="contactpersonid" Type="Int32" />
+          <Property Name="startIssueid" Type="Int32" />
+          <Property Name="stopIssueid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblSubscriptionTypeCustomer">
+          <Key>
+            <PropertyRef Name="subscriptionTypeCustomerID" />
+          </Key>
+          <Property Name="subscriptionTypeCustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subscriptionTypeID" Type="Int32" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="dtmStart" Type="DateTime" Precision="3" />
+          <Property Name="dtmStop" Type="DateTime" Precision="3" />
+          <Property Name="dtmInvoice" Type="DateTime" Precision="3" />
+          <Property Name="intAmount" Type="Int32" />
+          <Property Name="intInvoiceInterval" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="strFirstname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strLastname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strUsername" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strEmail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strPassword" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblOrders" Relationship="Self.FK_tblOrder_tblUser" FromRole="tblUser" ToRole="tblOrder" />
+          <NavigationProperty Name="tblUserGroupUsers" Relationship="Self.FK_tblUserGroupUser_tblUser" FromRole="tblUser" ToRole="tblUserGroupUser" />
+        </EntityType>
+        <EntityType Name="tblUserGroup">
+          <Key>
+            <PropertyRef Name="userGroupID" />
+          </Key>
+          <Property Name="userGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyID" Type="Int32" Nullable="false" />
+          <Property Name="strName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bitDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblCompany" Relationship="Self.FK_tblUserGroup_tblCompany" FromRole="tblUserGroup" ToRole="tblCompany" />
+          <NavigationProperty Name="tblUserGroupUsers" Relationship="Self.FK_tblUserGroupUser_tblUserGroup" FromRole="tblUserGroup" ToRole="tblUserGroupUser" />
+        </EntityType>
+        <EntityType Name="tblUserGroupUser">
+          <Key>
+            <PropertyRef Name="userGroupUserID" />
+          </Key>
+          <Property Name="userGroupUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userGroupID" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblUserGroupUser_tblUser" FromRole="tblUserGroupUser" ToRole="tblUser" />
+          <NavigationProperty Name="tblUserGroup" Relationship="Self.FK_tblUserGroupUser_tblUserGroup" FromRole="tblUserGroupUser" ToRole="tblUserGroup" />
+        </EntityType>
+        <EntityType Name="tblTempCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="strAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="strZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strCity" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="strTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="txtNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dtmCreated" Type="DateTime" Precision="3" />
+          <Property Name="dtmUpdated" Type="DateTime" Precision="3" />
+          <Property Name="strUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="strMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strContactName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="oldkontaktID" Type="Int32" />
+          <Property Name="strContactFirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="strContactLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="strContactPosition" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="strRegion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tblCategory_tblCategoryType">
+          <End Role="tblCategoryType" Type="Self.tblCategoryType" Multiplicity="1" />
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategoryType">
+              <PropertyRef Name="categoryTypeID" />
+            </Principal>
+            <Dependent Role="tblCategory">
+              <PropertyRef Name="categoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerCategory_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblCustomerCategory" Type="Self.tblCustomerCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="tblCustomerCategory">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerPersonCategory_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblCustomerPersonCategory" Type="Self.tblCustomerPersonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="tblCustomerPersonCategory">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomer_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblCustomer" Type="Relation.Relation.Infrastructure.Data.tblCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblCustomer">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrderUnit_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblOrderUnit" Type="Self.tblOrderUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblOrderUnit">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroup_tblCompany">
+          <End Role="tblCompany" Type="Self.tblCompany" Multiplicity="1" />
+          <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompany">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="tblUserGroup">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerCategory_tblCustomer">
+          <End Role="tblCustomer" Type="Relation.Relation.Infrastructure.Data.tblCustomer" Multiplicity="1" />
+          <End Role="tblCustomerCategory" Type="Self.tblCustomerCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblCustomerCategory">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCustomer">
+          <End Role="tblCustomer" Type="Relation.Relation.Infrastructure.Data.tblCustomer" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCustomer">
+          <End Role="tblCustomer" Type="Relation.Relation.Infrastructure.Data.tblCustomer" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCustomerPersonCategory_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="1" />
+          <End Role="tblCustomerPersonCategory" Type="Self.tblCustomerPersonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblCustomerPersonCategory">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblCustomerPerson">
+          <End Role="tblCustomerPerson" Type="Self.tblCustomerPerson" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerPerson">
+              <PropertyRef Name="customerPersonID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="customerPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblOrderUnit">
+          <End Role="tblOrderUnit" Type="Self.tblOrderUnit" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrderUnit">
+              <PropertyRef Name="orderUnitID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="orderUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrder_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+          <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubscription_tblProduct">
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProduct">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="tblSubscription">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroupUser_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+          <End Role="tblUserGroupUser" Type="Self.tblUserGroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tblUserGroupUser">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserGroupUser_tblUserGroup">
+          <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="1" />
+          <End Role="tblUserGroupUser" Type="Self.tblUserGroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserGroup">
+              <PropertyRef Name="userGroupID" />
+            </Principal>
+            <Dependent Role="tblUserGroupUser">
+              <PropertyRef Name="userGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RelationDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCategories" EntityType="Self.tblCategory" />
+          <EntitySet Name="tblCategoryTypes" EntityType="Self.tblCategoryType" />
+          <EntitySet Name="tblCompanies" EntityType="Self.tblCompany" />
+          <EntitySet Name="tblConsultants" EntityType="Self.tblConsultant" />
+          <EntitySet Name="tblConsultanthistories" EntityType="Self.tblConsultanthistory" />
+          <EntitySet Name="tblContacts" EntityType="Self.tblContact" />
+          <EntitySet Name="tblContactPersons" EntityType="Self.tblContactPerson" />
+          <EntitySet Name="tblContactPersonCategories" EntityType="Self.tblContactPersonCategory" />
+          <EntitySet Name="tblContactPersonContactPersonCategories" EntityType="Self.tblContactPersonContactPersonCategory" />
+          <EntitySet Name="tblCustomers" EntityType="Relation.Relation.Infrastructure.Data.tblCustomer" />
+          <EntitySet Name="tblCustomerCategories" EntityType="Self.tblCustomerCategory" />
+          <EntitySet Name="tblCustomerCustomercategories" EntityType="Self.tblCustomerCustomercategory" />
+          <EntitySet Name="tblCustomerPersons" EntityType="Self.tblCustomerPerson" />
+          <EntitySet Name="tblCustomerPersonCategories" EntityType="Self.tblCustomerPersonCategory" />
+          <EntitySet Name="tblCustomerSellers" EntityType="Self.tblCustomerSeller" />
+          <EntitySet Name="tblMessages" EntityType="Self.tblMessage" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+          <EntitySet Name="tblOrderUnits" EntityType="Self.tblOrderUnit" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+          <EntitySet Name="tblSessions" EntityType="Self.tblSession" />
+          <EntitySet Name="tblSubscriptions" EntityType="Self.tblSubscription" />
+          <EntitySet Name="tblSubscriptionTypes" EntityType="Self.tblSubscriptionType" />
+          <EntitySet Name="tblSubscriptionTypeContactPersons" EntityType="Self.tblSubscriptionTypeContactPerson" />
+          <EntitySet Name="tblSubscriptionTypeCustomers" EntityType="Self.tblSubscriptionTypeCustomer" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <EntitySet Name="tblUserGroups" EntityType="Self.tblUserGroup" />
+          <EntitySet Name="tblUserGroupUsers" EntityType="Self.tblUserGroupUser" />
+          <EntitySet Name="tblTempCustomers" EntityType="Self.tblTempCustomer" />
+          <AssociationSet Name="FK_tblCategory_tblCategoryType" Association="Self.FK_tblCategory_tblCategoryType">
+            <End Role="tblCategoryType" EntitySet="tblCategoryTypes" />
+            <End Role="tblCategory" EntitySet="tblCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerCategory_tblCategory" Association="Self.FK_tblCustomerCategory_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategories" />
+            <End Role="tblCustomerCategory" EntitySet="tblCustomerCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerPersonCategory_tblCategory" Association="Self.FK_tblCustomerPersonCategory_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategories" />
+            <End Role="tblCustomerPersonCategory" EntitySet="tblCustomerPersonCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomer_tblCompany" Association="Self.FK_tblCustomer_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCompany" Association="Self.FK_tblOrder_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrderUnit_tblCompany" Association="Self.FK_tblOrderUnit_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblOrderUnit" EntitySet="tblOrderUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCompany" Association="Self.FK_tblSubscription_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblSubscription" EntitySet="tblSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroup_tblCompany" Association="Self.FK_tblUserGroup_tblCompany">
+            <End Role="tblCompany" EntitySet="tblCompanies" />
+            <End Role="tblUserGroup" EntitySet="tblUserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerCategory_tblCustomer" Association="Self.FK_tblCustomerCategory_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblCustomerCategory" EntitySet="tblCustomerCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCustomer" Association="Self.FK_tblOrder_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCustomer" Association="Self.FK_tblSubscription_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblSubscription" EntitySet="tblSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCustomerPersonCategory_tblCustomerPerson" Association="Self.FK_tblCustomerPersonCategory_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPersons" />
+            <End Role="tblCustomerPersonCategory" EntitySet="tblCustomerPersonCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblCustomerPerson" Association="Self.FK_tblOrder_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPersons" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblCustomerPerson" Association="Self.FK_tblSubscription_tblCustomerPerson">
+            <End Role="tblCustomerPerson" EntitySet="tblCustomerPersons" />
+            <End Role="tblSubscription" EntitySet="tblSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblOrderUnit" Association="Self.FK_tblOrder_tblOrderUnit">
+            <End Role="tblOrderUnit" EntitySet="tblOrderUnits" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblProduct" Association="Self.FK_tblOrder_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrder_tblUser" Association="Self.FK_tblOrder_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubscription_tblProduct" Association="Self.FK_tblSubscription_tblProduct">
+            <End Role="tblProduct" EntitySet="tblProducts" />
+            <End Role="tblSubscription" EntitySet="tblSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroupUser_tblUser" Association="Self.FK_tblUserGroupUser_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblUserGroupUser" EntitySet="tblUserGroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroupUser_tblUserGroup" Association="Self.FK_tblUserGroupUser_tblUserGroup">
+            <End Role="tblUserGroup" EntitySet="tblUserGroups" />
+            <End Role="tblUserGroupUser" EntitySet="tblUserGroupUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RelationInfrastructureDataStoreContainer" CdmEntityContainer="RelationDB">
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="categoryTypeID" ColumnName="categoryTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategoryTypes">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCategoryType">
+              <MappingFragment StoreEntitySet="tblCategoryType">
+                <ScalarProperty Name="categoryTypeID" ColumnName="categoryTypeID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCompanies">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCompany">
+              <MappingFragment StoreEntitySet="tblCompany">
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConsultants">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblConsultant">
+              <MappingFragment StoreEntitySet="tblConsultant">
+                <ScalarProperty Name="consultantID" ColumnName="consultantID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="dtmDate" ColumnName="dtmDate" />
+                <ScalarProperty Name="sellerID" ColumnName="sellerID" />
+                <ScalarProperty Name="bitInvoiceOk" ColumnName="bitInvoiceOk" />
+                <ScalarProperty Name="dblPrice" ColumnName="dblPrice" />
+                <ScalarProperty Name="txtWhat" ColumnName="txtWhat" />
+                <ScalarProperty Name="bitInvoice" ColumnName="bitInvoice" />
+                <ScalarProperty Name="bitConsultant" ColumnName="bitConsultant" />
+                <ScalarProperty Name="dblUnits" ColumnName="dblUnits" />
+                <ScalarProperty Name="dblUnitPrice" ColumnName="dblUnitPrice" />
+                <ScalarProperty Name="timereportid" ColumnName="timereportid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="kontoID" ColumnName="kontoID" />
+                <ScalarProperty Name="kstID" ColumnName="kstID" />
+                <ScalarProperty Name="dblHours" ColumnName="dblHours" />
+                <ScalarProperty Name="intHourPrice" ColumnName="intHourPrice" />
+                <ScalarProperty Name="kstbID" ColumnName="kstbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConsultanthistories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblConsultanthistory">
+              <MappingFragment StoreEntitySet="tblConsultanthistory">
+                <ScalarProperty Name="consultanthistoryID" ColumnName="consultanthistoryID" />
+                <ScalarProperty Name="consultantID" ColumnName="consultantID" />
+                <ScalarProperty Name="dtmTime" ColumnName="dtmTime" />
+                <ScalarProperty Name="sellerID" ColumnName="sellerID" />
+                <ScalarProperty Name="strText" ColumnName="strText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContacts">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblContact">
+              <MappingFragment StoreEntitySet="tblContact">
+                <ScalarProperty Name="contactID" ColumnName="contactID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="sellerID" ColumnName="sellerID" />
+                <ScalarProperty Name="dtmWhen" ColumnName="dtmWhen" />
+                <ScalarProperty Name="txtNote" ColumnName="txtNote" />
+                <ScalarProperty Name="bitReminder" ColumnName="bitReminder" />
+                <ScalarProperty Name="bitComplete" ColumnName="bitComplete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactPersons">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblContactPerson">
+              <MappingFragment StoreEntitySet="tblContactPerson">
+                <ScalarProperty Name="contactPersonID" ColumnName="contactPersonID" />
+                <ScalarProperty Name="strFirstName" ColumnName="strFirstName" />
+                <ScalarProperty Name="strLastName" ColumnName="strLastName" />
+                <ScalarProperty Name="strAddress" ColumnName="strAddress" />
+                <ScalarProperty Name="strZipCode" ColumnName="strZipCode" />
+                <ScalarProperty Name="strTele" ColumnName="strTele" />
+                <ScalarProperty Name="strMobile" ColumnName="strMobile" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+                <ScalarProperty Name="strCountry" ColumnName="strCountry" />
+                <ScalarProperty Name="strCity" ColumnName="strCity" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="strOther" ColumnName="strOther" />
+                <ScalarProperty Name="strBirthday" ColumnName="strBirthday" />
+                <ScalarProperty Name="strFax" ColumnName="strFax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactPersonCategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblContactPersonCategory">
+              <MappingFragment StoreEntitySet="tblContactPersonCategory">
+                <ScalarProperty Name="contactPersonCategoryID" ColumnName="contactPersonCategoryID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactPersonContactPersonCategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblContactPersonContactPersonCategory">
+              <MappingFragment StoreEntitySet="tblContactPersonContactPersonCategory">
+                <ScalarProperty Name="contactPersonContactPersonCategoryID" ColumnName="contactPersonContactPersonCategoryID" />
+                <ScalarProperty Name="contactPersonID" ColumnName="contactPersonID" />
+                <ScalarProperty Name="contactPersonCategoryID" ColumnName="contactPersonCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomer">
+              <MappingFragment StoreEntitySet="tblCustomer">
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="intCustomerNumber" ColumnName="intCustomerNumber" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strNote" ColumnName="strNote" />
+                <ScalarProperty Name="strVAT" ColumnName="strVAT" />
+                <ScalarProperty Name="strAddress" ColumnName="strAddress" />
+                <ScalarProperty Name="strZip" ColumnName="strZip" />
+                <ScalarProperty Name="strCity" ColumnName="strCity" />
+                <ScalarProperty Name="strCountry" ColumnName="strCountry" />
+                <ScalarProperty Name="strPhone" ColumnName="strPhone" />
+                <ScalarProperty Name="strFax" ColumnName="strFax" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+                <ScalarProperty Name="strUrl" ColumnName="strUrl" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerCategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomerCategory">
+              <MappingFragment StoreEntitySet="tblCustomerCategory">
+                <ScalarProperty Name="customerCategoryID" ColumnName="customerCategoryID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerCustomercategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomerCustomercategory">
+              <MappingFragment StoreEntitySet="tblCustomerCustomercategory">
+                <ScalarProperty Name="customerCustomercategoryID" ColumnName="customerCustomercategoryID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="customercategoryID" ColumnName="customercategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerPersons">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomerPerson">
+              <MappingFragment StoreEntitySet="tblCustomerPerson">
+                <ScalarProperty Name="customerPersonID" ColumnName="customerPersonID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="strFirstname" ColumnName="strFirstname" />
+                <ScalarProperty Name="strLastname" ColumnName="strLastname" />
+                <ScalarProperty Name="strSaturation" ColumnName="strSaturation" />
+                <ScalarProperty Name="strNote" ColumnName="strNote" />
+                <ScalarProperty Name="strAddress" ColumnName="strAddress" />
+                <ScalarProperty Name="strZip" ColumnName="strZip" />
+                <ScalarProperty Name="strCity" ColumnName="strCity" />
+                <ScalarProperty Name="strCountry" ColumnName="strCountry" />
+                <ScalarProperty Name="strPhone" ColumnName="strPhone" />
+                <ScalarProperty Name="strFax" ColumnName="strFax" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+                <ScalarProperty Name="strUrl" ColumnName="strUrl" />
+                <ScalarProperty Name="dtmBirthday" ColumnName="dtmBirthday" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerPersonCategories">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomerPersonCategory">
+              <MappingFragment StoreEntitySet="tblCustomerPersonCategory">
+                <ScalarProperty Name="customerPersonCategoryID" ColumnName="customerPersonCategoryID" />
+                <ScalarProperty Name="customerPersonID" ColumnName="customerPersonID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerSellers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblCustomerSeller">
+              <MappingFragment StoreEntitySet="tblCustomerSeller">
+                <ScalarProperty Name="customerSellerID" ColumnName="customerSellerID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="sellerID" ColumnName="sellerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMessages">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblMessage">
+              <MappingFragment StoreEntitySet="tblMessage">
+                <ScalarProperty Name="messageID" ColumnName="messageID" />
+                <ScalarProperty Name="strMessage" ColumnName="strMessage" />
+                <ScalarProperty Name="dtmFrom" ColumnName="dtmFrom" />
+                <ScalarProperty Name="dtmTom" ColumnName="dtmTom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrder">
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="customerPersonID" ColumnName="customerPersonID" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="orderUnitID" ColumnName="orderUnitID" />
+                <ScalarProperty Name="intAmount" ColumnName="intAmount" />
+                <ScalarProperty Name="dblUnitPrice" ColumnName="dblUnitPrice" />
+                <ScalarProperty Name="strDescription" ColumnName="strDescription" />
+                <ScalarProperty Name="bitInvoice" ColumnName="bitInvoice" />
+                <ScalarProperty Name="bitInvoiceOK" ColumnName="bitInvoiceOK" />
+                <ScalarProperty Name="dtmWhen" ColumnName="dtmWhen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderUnits">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblOrderUnit">
+              <MappingFragment StoreEntitySet="tblOrderUnit">
+                <ScalarProperty Name="orderUnitID" ColumnName="orderUnitID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="strUnit" ColumnName="strUnit" />
+                <ScalarProperty Name="strDescription" ColumnName="strDescription" />
+                <ScalarProperty Name="bitInteger" ColumnName="bitInteger" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="dblUnitPrice" ColumnName="dblUnitPrice" />
+                <ScalarProperty Name="strDescription" ColumnName="strDescription" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblProject">
+              <MappingFragment StoreEntitySet="tblProject">
+                <ScalarProperty Name="projectID" ColumnName="projectID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSessions">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblSession">
+              <MappingFragment StoreEntitySet="tblSession">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+                <ScalarProperty Name="sessionGUID" ColumnName="sessionGUID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strValue" ColumnName="strValue" />
+                <ScalarProperty Name="dtmUpdate" ColumnName="dtmUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubscriptions">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblSubscription">
+              <MappingFragment StoreEntitySet="tblSubscription">
+                <ScalarProperty Name="subscriptionID" ColumnName="subscriptionID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="customerPersonID" ColumnName="customerPersonID" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="intInvoicesPerYear" ColumnName="intInvoicesPerYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubscriptionTypes">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblSubscriptionType">
+              <MappingFragment StoreEntitySet="tblSubscriptionType">
+                <ScalarProperty Name="subscriptionTypeID" ColumnName="subscriptionTypeID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubscriptionTypeContactPersons">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblSubscriptionTypeContactPerson">
+              <MappingFragment StoreEntitySet="tblSubscriptionTypeContactPerson">
+                <ScalarProperty Name="subscriptiontypecontactpersonid" ColumnName="subscriptiontypecontactpersonid" />
+                <ScalarProperty Name="subscriptiontypemodeid" ColumnName="subscriptiontypemodeid" />
+                <ScalarProperty Name="contactpersonid" ColumnName="contactpersonid" />
+                <ScalarProperty Name="startIssueid" ColumnName="startIssueid" />
+                <ScalarProperty Name="stopIssueid" ColumnName="stopIssueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubscriptionTypeCustomers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblSubscriptionTypeCustomer">
+              <MappingFragment StoreEntitySet="tblSubscriptionTypeCustomer">
+                <ScalarProperty Name="subscriptionTypeCustomerID" ColumnName="subscriptionTypeCustomerID" />
+                <ScalarProperty Name="subscriptionTypeID" ColumnName="subscriptionTypeID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="dtmStart" ColumnName="dtmStart" />
+                <ScalarProperty Name="dtmStop" ColumnName="dtmStop" />
+                <ScalarProperty Name="dtmInvoice" ColumnName="dtmInvoice" />
+                <ScalarProperty Name="intAmount" ColumnName="intAmount" />
+                <ScalarProperty Name="intInvoiceInterval" ColumnName="intInvoiceInterval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="strFirstname" ColumnName="strFirstname" />
+                <ScalarProperty Name="strLastname" ColumnName="strLastname" />
+                <ScalarProperty Name="strUsername" ColumnName="strUsername" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+                <ScalarProperty Name="strPassword" ColumnName="strPassword" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserGroups">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblUserGroup">
+              <MappingFragment StoreEntitySet="tblUserGroup">
+                <ScalarProperty Name="userGroupID" ColumnName="userGroupID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="bitDisabled" ColumnName="bitDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserGroupUsers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblUserGroupUser">
+              <MappingFragment StoreEntitySet="tblUserGroupUser">
+                <ScalarProperty Name="userGroupUserID" ColumnName="userGroupUserID" />
+                <ScalarProperty Name="userGroupID" ColumnName="userGroupID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTempCustomers">
+            <EntityTypeMapping TypeName="Relation.Relation.Infrastructure.Data.tblTempCustomer">
+              <MappingFragment StoreEntitySet="tblTempCustomer">
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strAddress" ColumnName="strAddress" />
+                <ScalarProperty Name="strZip" ColumnName="strZip" />
+                <ScalarProperty Name="strCity" ColumnName="strCity" />
+                <ScalarProperty Name="strTel" ColumnName="strTel" />
+                <ScalarProperty Name="strFax" ColumnName="strFax" />
+                <ScalarProperty Name="strEmail" ColumnName="strEmail" />
+                <ScalarProperty Name="txtNote" ColumnName="txtNote" />
+                <ScalarProperty Name="dtmCreated" ColumnName="dtmCreated" />
+                <ScalarProperty Name="dtmUpdated" ColumnName="dtmUpdated" />
+                <ScalarProperty Name="strUrl" ColumnName="strUrl" />
+                <ScalarProperty Name="strMobile" ColumnName="strMobile" />
+                <ScalarProperty Name="strHome" ColumnName="strHome" />
+                <ScalarProperty Name="strCountry" ColumnName="strCountry" />
+                <ScalarProperty Name="strContactName" ColumnName="strContactName" />
+                <ScalarProperty Name="oldkontaktID" ColumnName="oldkontaktID" />
+                <ScalarProperty Name="strContactFirstName" ColumnName="strContactFirstName" />
+                <ScalarProperty Name="strContactLastName" ColumnName="strContactLastName" />
+                <ScalarProperty Name="strContactPosition" ColumnName="strContactPosition" />
+                <ScalarProperty Name="strRegion" ColumnName="strRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
