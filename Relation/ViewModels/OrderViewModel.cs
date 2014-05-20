@@ -7,6 +7,7 @@ namespace Relation.Web.ViewModels
 {
     public class OrderViewModel :InputViewModel
     {
+
         public int CompanyID { get; set; }
         public int UserID { get; set; }
         public int CustomerID { get; set; }

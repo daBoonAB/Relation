@@ -25,7 +25,6 @@ namespace Relation.Web.Helpers
             {
                 li.AddCssClass("active");
             }
-            li.AddCssClass(currentController);
             li.InnerHtml = htmlHelper.ActionLink(text, action, controller).ToHtmlString();
             return MvcHtmlString.Create(li.ToString());
         }
